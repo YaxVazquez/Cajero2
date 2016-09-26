@@ -47,8 +47,8 @@ public class Abonos extends JFrame {
 		panel.add("Center", panelNumeros);
 
 		panelOperaciones = new JPanel();
-		panelOperaciones.setLayout(new GridLayout(5, 6));
-		panelOperaciones.setBorder(new EmptyBorder(4, 4, 4, 4));
+		panelOperaciones.setLayout(new GridLayout(3, 3));
+		panelOperaciones.setBorder(new EmptyBorder(100, 4, 4, 4));
                 panelOperaciones.setBackground(new java.awt.Color(236, 255, 231));
                 
                 nuevoBotonOperacion("CE");
