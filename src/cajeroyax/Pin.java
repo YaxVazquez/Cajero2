@@ -9,16 +9,15 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
 
-public class Abonos extends JFrame {
+public class Pin extends JFrame {
 
 	JTextField pantalla;
 	double resultado;
 	String operacion;
 	JPanel panelNumeros, panelOperaciones;
 	boolean nuevaOperacion = true;
-        double monto = 0;
         
-	public Abonos() {
+	public Pin() {
 		super();
 		setSize(400, 400);
 		setTitle("Cajero");
@@ -29,7 +28,7 @@ public class Abonos extends JFrame {
 		JPanel panel = (JPanel)this.getContentPane();
 		panel.setLayout(new BorderLayout());
 
-		pantalla = new JTextField("0", 200);
+		pantalla = new JPasswordField("", 200);
 		pantalla.setBorder(new EmptyBorder(4, 4, 4, 4));
 		pantalla.setFont(new Font("Arial", Font.BOLD, 45));
                 pantalla.setBackground(new java.awt.Color(236, 255, 231));
@@ -53,7 +52,7 @@ public class Abonos extends JFrame {
                 panelOperaciones.setBackground(new java.awt.Color(236, 255, 231));
                 
                 nuevoBotonOperacion("CE");
-		nuevoBotonOperacion("Abonar");
+		nuevoBotonOperacion("Entrar");
 		nuevoBotonOperacion("Salir");
 
 		panel.add("East", panelOperaciones);
@@ -99,7 +98,7 @@ public class Abonos extends JFrame {
 		panelOperaciones.add(btn);
 	}
 	private void numeroPulsado(String digito) {
-		if (pantalla.getText().equals("0") || nuevaOperacion) {
+		if (pantalla.getText().equals("") || nuevaOperacion) {
 			pantalla.setText(digito);
 		} else {
 			pantalla.setText(pantalla.getText() + digito);
@@ -113,23 +112,16 @@ public class Abonos extends JFrame {
 			nuevaOperacion = true;
 		} else if (tecla.equals("Salir")){
                         dispose();
-                        Cajero jjj= new Cajero();
+                        Primera jjj= new Primera();
                         jjj.setVisible(true);
-                } else {
-			operacion = tecla;
-			if ((monto > 0) && !nuevaOperacion) {
-				calcularResultado();
-			} else {
-				monto = new Double(pantalla.getText());
-			}
-		}
-		nuevaOperacion = true;
+                } else if (tecla.equals("Entrar")){
+                         if (pantalla.getText().equals("666")){
+                            dispose();
+                            Cajero jjj= new Cajero();
+                            jjj.setVisible(true);
+                        } else {
+                            JOptionPane.showMessageDialog(null,"Código Inválido");
+                        } 
+                }
 	}
-	private void calcularResultado() {
-		if (operacion.equals("Abonar")) {
-			monto += new Double(pantalla.getText());
-		}
-                 JOptionPane.showMessageDialog(null,monto);
-	}
-        
 }

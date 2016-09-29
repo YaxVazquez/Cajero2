@@ -6,9 +6,10 @@ package cajeroyax;
  */
 public class Cajero2 {
     public static void main(String[] args) {
-        Cajero caj = new Cajero();
-         caj.setVisible(true);
+       /* Primera caj = new Primera();
+         caj.setVisible(true); */
          
-        
+        Cajero caj = new Cajero();
+        caj.setVisible(true);
     }
 }

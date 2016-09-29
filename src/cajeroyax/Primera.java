@@ -8,7 +8,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
 
-public class Cajero extends JFrame {
+public class Primera extends JFrame {
 
 	JTextField pantalla;
 	double resultado;
@@ -16,7 +16,7 @@ public class Cajero extends JFrame {
 	JPanel panelNumeros, panelOperaciones;
 	boolean nuevaOperacion = true;
         
-	public Cajero() {
+	public Primera() {
 		super();
 		setSize(400, 400);
 		setTitle("Cajero");
@@ -29,13 +29,11 @@ public class Cajero extends JFrame {
 
 		panelOperaciones = new JPanel();
 		panelOperaciones.setLayout(new GridLayout(4, 6));
-		panelOperaciones.setBorder(new EmptyBorder(30, 20, 10, 20));
+		panelOperaciones.setBorder(new EmptyBorder(110, 50, 10, 50));
                 panelOperaciones.setBackground(new java.awt.Color(236, 255, 231));
                 
-		nuevoBotonOperacion("Abonar");
-		nuevoBotonOperacion("Retirar");
-		nuevoBotonOperacion("Consultar");
-                nuevoBotonOperacion("Salir");
+		nuevoBotonOperacion("Entrar");
+		nuevoBotonOperacion("Registrarse");
 
 		panel.add("Center", panelOperaciones);
 
@@ -61,19 +59,13 @@ public class Cajero extends JFrame {
 		panelOperaciones.add(btn);
 	}
 	private void operacionPulsado(String tecla) {
-                if (tecla.equals("Abonar")) {
+                if (tecla.equals("Entrar")) {
 			dispose();
-                        Abonos jeje= new Abonos();
-                        jeje.setVisible(true);
-		} else if(tecla.equals("Retirar")) {
-			dispose();
-                        Retiros jiji= new Retiros();
-                        jiji.setVisible(true);
-		} else if (tecla.equals("Salir")) {
-                        dispose();
-                        Primera jjj= new Primera();
-                        jjj.setVisible(true);
-                }
+                        Pin xddd = new Pin();
+                        xddd.setVisible(true);
+		} else if(tecla.equals("Registrarse")) {
+			
+		} 
 		nuevaOperacion = true;
 	}
 }
